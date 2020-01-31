@@ -6,7 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      java_version: 8  
       base: javac/
       main: Main.java
       run: Main
@@ -14,7 +13,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
-          java-version: ${{java_version}}
+          java-version: 8
           java-package: jdk 
           architecture: x64 
       - run: |
