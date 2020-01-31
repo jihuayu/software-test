@@ -1,0 +1,23 @@
+name: javac
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      java_version: 8  
+      base: javac/
+      main: Main.java
+      run: Main
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: ${{java_version}}
+          java-package: jdk 
+          architecture: x64 
+      - run: |
+          cd $base
+          javac $main
+          java $run
